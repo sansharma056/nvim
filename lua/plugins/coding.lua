@@ -69,6 +69,8 @@ return {
 
 					map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
+					map("gl", vim.diagnostic.open_float, "Open diagnostics")
+
 					map("<leader>ca", vim.lsp.buf.code_action, "Goto [C]ode [A]ction", { "n", "x" })
 
 					map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
