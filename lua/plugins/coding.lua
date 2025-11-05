@@ -129,8 +129,6 @@ return {
 				},
 			})
 
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
 			local servers = {
 				lua_ls = {
 					settings = {
@@ -144,6 +142,7 @@ return {
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
+
 			vim.list_extend(ensure_installed, {
 				"stylua",
 				"prettier",
@@ -154,13 +153,6 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
 				automatic_installation = false,
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
 			})
 		end,
 	},
@@ -184,7 +176,7 @@ return {
 			},
 
 			completion = {
-				documentation = { auto_show = false, auto_show_delay_ms = 500 },
+				documentation = { auto_show = true, auto_show_delay_ms = 250, window = { border = "rounded" } },
 			},
 
 			sources = {
