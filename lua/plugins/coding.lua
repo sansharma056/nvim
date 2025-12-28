@@ -216,6 +216,8 @@ return {
 				typescriptreact = { "prettier" },
 				scss = { "prettier" },
 				json = { "prettier" },
+				jsonc = { "prettier" },
+				python = { "black" },
 			},
 		},
 	},
