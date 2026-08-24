@@ -7,9 +7,8 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
-		branch = "master",
+		branch = "main",
 		build = ":TSUpdate",
-		main = "nvim-treesitter.configs",
 		opts = {
 			ensure_installed = {
 				"diff",
@@ -214,11 +213,23 @@ return {
 				javascriptreact = { "prettier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
+				css = { "prettier" },
 				scss = { "prettier" },
 				json = { "prettier" },
 				jsonc = { "prettier" },
 				python = { "black" },
 			},
+		},
+	},
+
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/neotest-jest",
 		},
 	},
 }
